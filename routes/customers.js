@@ -1,8 +1,44 @@
 var express = require('express');
 var router = express.Router();
-const CustomerController = require('../controllers/customers.js');
-router.get('/', CustomerController.list);
-router.post('/create', CustomerController.save);
-router.get('/update/:MaKH', CustomerController.edit);
-router.get('/delete/:MaKH', CustomerController.delete);
+
+router.get('/', function(req, res, next) {
+    req.getConnection((err, conn) => {
+        conn.query('SELECT * FROM KhachHang', (err, data) => {
+         if (err) {
+          res.json(err);
+         }
+         res.render('khachHang', { data });
+        });
+    });
+});
+
+router.post('/create', function(req, res, next) {
+    const data = req.body;
+    req.getConnection((err, connection) => {
+        conn.query('INSERT INTO KhachHang set ?', data, (err, results) => {
+        res.redirect('/');
+      });
+    });
+});
+
+router.get('/update/:MaKH', function(req, res, next) {
+    const MaKH = req.params.MaKH;
+    req.getConnection((err, conn) => {
+        conn.query("SELECT * FROM KhachHang WHERE MaKH = ?", [MaKH], (err, rows) => {
+        res.render('KHACHHANGS_edit', {
+            data: rows[0]
+        });
+        });
+    });
+});
+
+router.get('/delete/:MaKH', function(req, res, next) {
+    const MaKH = req.params.MaKH;
+    req.getConnection((err, connection) => {
+      conn.query('DELETE FROM KhachHang WHERE MaKH = ?', [MaKH], (err, rows) => {
+        res.redirect('/');
+    });
+    })
+});
+
 module.exports = router;
