@@ -21,8 +21,8 @@
                 <td><%= data[i].DiaChi %></td>
                 <td><%= data[i].SoDT %></td>
                 <td>
-                  <a href="/update/<%= data[i].MaKH %>" class="btn">Sửa</a>
-                  <a href="/delete/<%= data[i].MaKH %>" class="btn">Xoá</a>
+                  <a href="/customers/update/<%= data[i].MaKH %>" class="btn">Sửa</a>
+                  <a href="/customers/delete/<%= data[i].MaKH %>" class="btn">Xoá</a>
                 </td>
               </tr>
             <% } %>
@@ -32,7 +32,7 @@
     </div>
     <div class="col-md-5">
       <div class="card-body">
-        <form action="/add" method="POST">
+        <form action="/customers/add" method="POST">
           <div class="form-group">
             <input type="text" name="TenKH" placeholder="Tên Khách hàng" class="form-control" autofocus>
           </div>
