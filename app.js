@@ -19,13 +19,13 @@ app.set('port', process.env.PORT || 3000);
 
 app.use(logger('dev'));
 
-// app.use(myConnection(mysql, {
-//   host: 'localhost',
-//   user: 'root',
-//   password: 'nguyenthanhcong',
-//   port: 3306,
-//   database: 'NhomN'
-// }, 'single'));
+app.use(myConnection(mysql, {
+  host: 'localhost',
+  user: 'root',
+  password: 'nguyenthanhcong',
+  port: 3306,
+  database: 'NhomN'
+}, 'single'));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
