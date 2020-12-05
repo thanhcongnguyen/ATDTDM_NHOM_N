@@ -1,0 +1,32 @@
+<%- include('Header'); -%>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-7">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <td>Mã sản phẩm</td>
+            <td>Tên sản phẩm</td>
+            <td>Số lượng</td>
+            <td>Mô tả</td>
+            <td>Mã Loại Sản Phẩm</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (data) { %>
+            <% for(var i = 0; i < data.length; i++) { %>
+              <tr>
+                <td><%= data[i].MaSP %></td>
+                <td><%= data[i].TenSP %></td>
+                <td><%= data[i].SoLuong %></td>
+                <td><%= data[i].MoTa %></td>
+                <td><%= data[i].MaLSP %></td>
+              </tr>
+            <% } %>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<%- include('Footer'); -%>
