@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-    req.getConnection((err, conn) => {
-        conn.query('SELECT * FROM KhachHang', (err, data) => {
+    req.getConnection((err, connection) => {
+        connection.query('SELECT * FROM KhachHang', (err, data) => {
          if (err) {
           res.json(err);
          }
@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
 router.post('/create', function(req, res, next) {
     const data = req.body;
     req.getConnection((err, connection) => {
-        conn.query('INSERT INTO KhachHang set ?', data, (err, results) => {
+        connection.query('INSERT INTO KhachHang set ?', data, (err, results) => {
         res.redirect('/');
       });
     });
@@ -23,8 +23,8 @@ router.post('/create', function(req, res, next) {
 
 router.get('/update/:MaKH', function(req, res, next) {
     const MaKH = req.params.MaKH;
-    req.getConnection((err, conn) => {
-        conn.query("SELECT * FROM KhachHang WHERE MaKH = ?", [MaKH], (err, rows) => {
+    req.getConnection((err, connection) => {
+        connection.query("SELECT * FROM KhachHang WHERE MaKH = ?", [MaKH], (err, rows) => {
         res.render('Customer_Update', {
             data: rows[0]
         });
@@ -35,7 +35,7 @@ router.get('/update/:MaKH', function(req, res, next) {
 router.get('/delete/:MaKH', function(req, res, next) {
     const MaKH = req.params.MaKH;
     req.getConnection((err, connection) => {
-      conn.query('DELETE FROM KhachHang WHERE MaKH = ?', [MaKH], (err, rows) => {
+        connection.query('DELETE FROM KhachHang WHERE MaKH = ?', [MaKH], (err, rows) => {
         res.redirect('/');
     });
     })
