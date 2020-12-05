@@ -16,7 +16,7 @@ router.post('/create', function(req, res, next) {
     const data = req.body;
     req.getConnection((err, connection) => {
         connection.query('INSERT INTO KhachHang set ?', data, (err, results) => {
-        res.redirect('/');
+        res.redirect('/customers');
       });
     });
 });
@@ -36,7 +36,7 @@ router.get('/delete/:MaKH', function(req, res, next) {
     const MaKH = req.params.MaKH;
     req.getConnection((err, connection) => {
         connection.query('DELETE FROM KhachHang WHERE MaKH = ?', [MaKH], (err, rows) => {
-        res.redirect('/');
+        res.redirect('/customers');
     });
     })
 });
