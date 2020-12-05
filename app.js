@@ -7,7 +7,7 @@ var mysql = require('mysql');
 var myConnection = require('express-myconnection');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var productsRouter = require('./routes/products');
 var customersRouter = require('./routes/customers');
 
 var app = express();
@@ -19,13 +19,13 @@ app.set('port', process.env.PORT || 3000);
 
 app.use(logger('dev'));
 
-app.use(myConnection(mysql, {
-  host: '13.212.143.129',
-  user: 'root',
-  password: 'nguyenthanhcong',
-  port: 3306,
-  database: 'NhomN'
-}, 'single'));
+// app.use(myConnection(mysql, {
+//   host: '13.212.143.129',
+//   user: 'root',
+//   password: 'nguyenthanhcong',
+//   port: 3306,
+//   database: 'NhomN'
+// }, 'single'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -34,6 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/customers', customersRouter);
+app.use('/products', productsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
