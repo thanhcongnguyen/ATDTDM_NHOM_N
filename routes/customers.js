@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
          if (err) {
           res.json(err);
          }
-         res.render('khachHang', { data });
+         res.render('Customer', { data });
         });
     });
 });
@@ -25,7 +25,7 @@ router.get('/update/:MaKH', function(req, res, next) {
     const MaKH = req.params.MaKH;
     req.getConnection((err, conn) => {
         conn.query("SELECT * FROM KhachHang WHERE MaKH = ?", [MaKH], (err, rows) => {
-        res.render('KHACHHANGS_edit', {
+        res.render('Customer_Update', {
             data: rows[0]
         });
         });
