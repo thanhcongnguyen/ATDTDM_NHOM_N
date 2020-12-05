@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-    req.getConnection((err, conn) => {
+    req.getConnection((err, connection) => {
         connection.query('SELECT * FROM SanPham', (err, data) => {
          if (err) {
           res.json(err);
