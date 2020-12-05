@@ -21,8 +21,8 @@
                 <td><%= data[i].DiaChi %></td>
                 <td><%= data[i].SoDT %></td>
                 <td>
-                  <a href="/update/<%= data[i].MaKH %>" class="btn btn-info">Sửa</a>
-                  <a href="/delete/<%= data[i].MaKH %>" class="btn btn-danger">Xoá</a>
+                  <a href="/update/<%= data[i].MaKH %>" class="btn">Sửa</a>
+                  <a href="/delete/<%= data[i].MaKH %>" class="btn">Xoá</a>
                 </td>
               </tr>
             <% } %>
@@ -42,7 +42,7 @@
           <div class="form-group">
             <input type="text" name="SoDT" placeholder="Số điện thoại" class="form-control">
           </div>
-          <button type="submit" class="btn btn-primary">
+          <button type="submit" class="btn">
             Lưu
           </button>
         </form>
