@@ -100,11 +100,11 @@ INSERT INTO HoaDon VALUES('hoadon_04', '2020-12-07 13:24:32', 'kh04', 'kh04');
 INSERT INTO HoaDon VALUES('hoadon_05', '2020-12-08 13:24:32', 'kh05', 'kh05');
 
 -- Them due lieu ChiTietDonHang
-INSERT INTO ChiTietDonHang VALUES('SP_01', 'hoadon_01', 1, 200, 'hoadon_01', 'SP_01');
-INSERT INTO ChiTietDonHang VALUES('SP_02', 'hoadon_02', 1, 150, 'hoadon_02', 'SP_02');
-INSERT INTO ChiTietDonHang VALUES('SP_03', 'hoadon_03', 1, 280, 'hoadon_03', 'SP_03');
-INSERT INTO ChiTietDonHang VALUES('SP_04', 'hoadon_04', 1, 249, 'hoadon_04', 'SP_04');
-INSERT INTO ChiTietDonHang VALUES('SP_05', 'hoadon_05', 1, 500, 'hoadon_05', 'SP_05');
+INSERT INTO ChiTietHoaDon VALUES('SP_01', 'hoadon_01', 1, 200, 'hoadon_01', 'SP_01');
+INSERT INTO ChiTietHoaDon VALUES('SP_02', 'hoadon_02', 1, 150, 'hoadon_02', 'SP_02');
+INSERT INTO ChiTietHoaDon VALUES('SP_03', 'hoadon_03', 1, 280, 'hoadon_03', 'SP_03');
+INSERT INTO ChiTietHoaDon VALUES('SP_04', 'hoadon_04', 1, 249, 'hoadon_04', 'SP_04');
+INSERT INTO ChiTietHoaDon VALUES('SP_05', 'hoadon_05', 1, 500, 'hoadon_05', 'SP_05');
 
 
 
